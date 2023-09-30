@@ -60,9 +60,9 @@ export default function Home() {
               Bersekolah di SMK TI BALI Global Denpasar, Jurusan RPL.
             </p>
             <div className="text-5xl flex justify-center gap-16 py-3 text-gray-600 dark:text-gray-400">
-              <AiFillTwitterCircle />
-              <AiFillGithub />
-              <AiFillInstagram />
+              <AiFillTwitterCircle href="https://twitter.com/kohanai_fandy" />
+              <AiFillGithub href="https://github.com/Fandyfr"/>
+              <AiFillInstagram href="https://instagram.com/fndy.fr"/>
             </div>
             <div className="mx-auto bg-gradient-to-b from-teal-500 rounded-full w-80 h-80 relative overflow-hidden mt-20 md:h-96 md:w-96">
               <Image src={deved} layout="fill" objectFit="cover" />
