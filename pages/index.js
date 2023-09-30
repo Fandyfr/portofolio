@@ -143,7 +143,8 @@ export default function Home() {
             </p>
           </div>
           <div className="flex flex-col gap-10 py-10 lg:flex-row lg:flex-wrap">
-            <div className="basis-1/3 flex-1 ">
+            <p>Belum bikin project apa apa hehe, project bagus akan ditampilkan disini.</p>
+            {/* <div className="basis-1/3 flex-1 ">
               <Image
                 className="rounded-lg object-cover"
                 width={"100%"}
@@ -196,7 +197,7 @@ export default function Home() {
                 layout="responsive"
                 src={web6}
               />
-            </div>
+            </div> */}
           </div>
         </section>
       </main>
