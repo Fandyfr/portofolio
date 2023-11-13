@@ -9,7 +9,7 @@ import { useState } from "react";
 import deved from "../public/dev-ed-wave.png";
 import code from "../public/code.png";
 import design from "../public/design.png";
-import consulting from "../public/consulting.png";
+import dev from "../public/dev.png";
 import Image from "next/image";
 
 
@@ -110,7 +110,7 @@ export default function Home() {
               <p className="text-gray-800 py-1">Python</p>
             </div>
             <div className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1">
-              <Image src={consulting} width={100} height={100} />
+              <Image src={dev} width={100} height={100} />
               <h3 className="text-lg font-medium pt-8 pb-2 ">APP Code</h3>
               <p className="py-2">
                 Beberapa apiklasi yang saya pake untuk
