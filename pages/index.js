@@ -11,12 +11,7 @@ import code from "../public/code.png";
 import design from "../public/design.png";
 import consulting from "../public/consulting.png";
 import Image from "next/image";
-import web1 from "../public/web1.png";
-import web2 from "../public/web2.png";
-import web3 from "../public/web3.png";
-import web4 from "../public/web4.png";
-import web5 from "../public/web5.png";
-import web6 from "../public/web6.png";
+
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
@@ -57,12 +52,12 @@ export default function Home() {
               Developer and Designer.
             </h3>
             <p className="text-md py-5 leading-8 text-gray-800 dark:text-gray-200 max-w-xl mx-auto md:text-xl">
-              Bersekolah di SMK TI BALI Global Denpasar, Jurusan RPL.
+              Bersekolah di SMK TI BALI Global Denpasar, Jurusan RPL (Rekayasa Perangkat Lunak).
             </p>
             <div className="text-5xl flex justify-center gap-16 py-3 text-gray-600 dark:text-gray-400">
-              <AiFillTwitterCircle href="https://twitter.com/kohanai_fandy" />
-              <AiFillGithub href="https://github.com/Fandyfr"/>
-              <AiFillInstagram href="https://instagram.com/fndy.fr"/>
+              <a href="https://twitter.com/kohanai_fandy"><AiFillTwitterCircle /></a>
+              <a href="https://github.com/Fandyfr"><AiFillGithub /></a>
+              <a href="https://instagram.com/fndy.fr"><AiFillInstagram /></a>
             </div>
             <div className="mx-auto bg-gradient-to-b from-teal-500 rounded-full w-80 h-80 relative overflow-hidden mt-20 md:h-96 md:w-96">
               <Image src={deved} layout="fill" objectFit="cover" />
@@ -108,11 +103,11 @@ export default function Home() {
               Ini adalah beberapa bahasa pemogramnan yang saya pelajari.
               </p>
               <h4 className="py-4 text-teal-600">Bahasa Pemograman</h4>
-              <p className="text-gray-800 py-1">HTML5</p>
+              <p className="text-gray-800 py-1">Flutter</p>
+              <p className="text-gray-800 py-1">Dart</p>
               <p className="text-gray-800 py-1">ReactJS</p>
-              <p className="text-gray-800 py-1">CSS3</p>
               <p className="text-gray-800 py-1">JavaScript</p>
-              <p className="text-gray-800 py-1">NextJS</p>
+              <p className="text-gray-800 py-1">Python</p>
             </div>
             <div className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1">
               <Image src={consulting} width={100} height={100} />
@@ -123,9 +118,9 @@ export default function Home() {
               </p>
               <h4 className="py-4 text-teal-600">App Coding</h4>
               <p className="text-gray-800 py-1">Visual Studio Code</p>
-              <p className="text-gray-800 py-1">Sublime Text</p>
+              <p className="text-gray-800 py-1">Visual Studio</p>
+              <p className="text-gray-800 py-1">Android Studio</p>
               <p className="text-gray-800 py-1">Dev C++</p>
-              <p className="text-gray-800 py-1">PyCharms</p>
             </div>
           </div>
         </section>
@@ -143,7 +138,7 @@ export default function Home() {
             </p>
           </div>
           <div className="flex flex-col gap-10 py-10 lg:flex-row lg:flex-wrap">
-            <p>Belum bikin project apa apa hehe, project bagus akan ditampilkan disini.</p>
+            <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">Belum bikin project apa apa hehe, project bagus akan ditampilkan disini.</p>
             {/* <div className="basis-1/3 flex-1 ">
               <Image
                 className="rounded-lg object-cover"
