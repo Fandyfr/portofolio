@@ -130,7 +130,7 @@ export default function Home() {
             <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
               Ini adalah beberapa project saya, Mempakai apiklasi
               <span className="text-teal-500"> Visual Studio Code, </span>
-              dan Mempakai bahasa pemograman <span className="text-teal-500">HTML5,CSS3,ReactJS, </span>
+              dan Mempakai bahasa pemograman <span className="text-teal-500">ReactJS,Dart,Python, </span>
               Untuk menciptakan produk digital untuk keperluan bisnis dan konsumen.
             </p>
             <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
