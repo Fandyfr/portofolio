@@ -55,7 +55,7 @@ export default function Home() {
               Bersekolah di SMK TI BALI Global Denpasar, Jurusan RPL (Rekayasa Perangkat Lunak).
             </p>
             <div className="text-5xl flex justify-center gap-16 py-3 text-gray-600 dark:text-gray-400">
-              <a href="https://twitter.com/kohanai_fandy"><AiFillTwitterCircle /></a>
+              <a href="https://x.com/FandyFrOfficial"><AiFillTwitterCircle /></a>
               <a href="https://github.com/Fandyfr"><AiFillGithub /></a>
               <a href="https://instagram.com/fndy.fr"><AiFillInstagram /></a>
             </div>
