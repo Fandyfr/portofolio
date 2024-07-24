@@ -2,7 +2,7 @@ import Head from "next/head";
 import {
   AiFillGithub,
   AiFillInstagram,
-  AiFillTwitterCircle,
+  AiFillRedditCircle,
 } from "react-icons/ai";
 import { FaXTwitter } from "react-icons/fa6";
 import { BsFillMoonStarsFill } from "react-icons/bs";
@@ -13,7 +13,6 @@ import desain from "../public/desain.png";
 import dev from "../public/dev.png";
 import Image from "next/image";
 
-
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
 
@@ -21,23 +20,36 @@ export default function Home() {
     <div className={darkMode ? "dark" : ""}>
       <Head>
         <title>FandyFr | Portofolio Page</title>
+        {/* META */}
         <meta name="description" content="Dibuat dengan Hati" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name="keywords" content="portofolio, web development, desain grafis, aplikasi mobile, proyek, kolaborasi, FandyFr, Fandy Fathurrohman"></meta>
+        <meta name="author" content="Fandy Fathurrohman"></meta>
+        <meta name="robots" content="index, follow"></meta>
+        {/* Twitter / X */}
+        <meta property="twitter:card" content="summary_large_image"></meta>
+        <meta property="twitter:url" content="https://portofolio-fandyfr.vercel.app/"></meta>
+        <meta property="twitter:title" content="FandyFr Portofolio"></meta>
+        <meta property="twitter:description" content="Portofolio saya mencakup proyek-proyek web development, desain grafis, dan aplikasi mobile. Lihat karya terbaik saya dan hubungi saya untuk kolaborasi lebih lanjut."></meta>
+        <meta property="twitter:image" content="https://portofolio-fandyfr.vercel.app/avatar.png"></meta>
+        {/* Icon */}
+        <link rel="icon" href="/avatar.png" />
       </Head>
-      <main className=" bg-white px-10 dark:bg-gray-900 md:px-20 lg:px-40">
+      <main className="bg-white px-5 dark:bg-gray-900 md:px-10 lg:px-20">
         <section className="min-h-screen">
-          <nav className="py-10 mb-12 flex justify-between dark:text-white">
-            <h1 className="font-burtons text-xl">FandyFr</h1>
+          <nav className="py-5 mb-10 flex justify-between dark:text-white">
+            <a href="https://portofolio-fandyfr.vercel.app/">
+              <h1 className="font-burtons text-xl">FandyFr 🦊</h1>
+            </a>
             <ul className="flex items-center">
               <li>
                 <BsFillMoonStarsFill
                   onClick={() => setDarkMode(!darkMode)}
-                  className=" cursor-pointer text-2xl"
+                  className="cursor-pointer text-2xl"
                 />
               </li>
               <li>
                 <a
-                  className="bg-gradient-to-r from-cyan-500 text- to-teal-500 text-white px-4 py-2 border-none rounded-md ml-8"
+                  className="bg-gradient-to-r from-red-500 to-orange-500 text-white px-4 py-2 border-none rounded-md ml-8"
                   href="https://github.com/Fandyfr"
                 >
                   My GitHub
@@ -45,78 +57,90 @@ export default function Home() {
               </li>
             </ul>
           </nav>
-          <div className="text-center p-10 py-10">
-            <h2 className="text-5xl py-2 text-teal-600 font-medium dark:text-teal-400 md:text-6xl">
+          <div className="text-center p-5 py-10">
+            <h2 className="text-4xl py-2 text-orange-600 font-medium dark:text-orange-400 md:text-5xl lg:text-6xl">
               Fandy Fathurrohman
             </h2>
-            <h3 className="text-2xl py-2 dark:text-white md:text-3xl">
-              Developer and Designer.
+            <h3 className="text-xl py-2 dark:text-white md:text-2xl lg:text-3xl">
+              🦊 Developer and Designer 🦊
             </h3>
-            <p className="text-md py-5 leading-8 text-gray-800 dark:text-gray-200 max-w-xl mx-auto md:text-xl">
-              Bersekolah di SMK TI BALI Global Denpasar, Jurusan RPL (Rekayasa Perangkat Lunak).
+            <p className="text-md py-5 leading-8 text-gray-800 dark:text-gray-200 max-w-xl mx-auto md:text-lg lg:text-xl">
+              Bersekolah di SMK TI BALI Global Denpasar, Jurusan RPL (Rekayasa
+              Perangkat Lunak).
             </p>
-            <div className="text-5xl flex justify-center gap-16 py-3 text-gray-600 dark:text-gray-400">
-              <a href="https://x.com/FandyFrOfficial"><AiFillTwitterCircle /></a>
-              <a href="https://github.com/Fandyfr"><AiFillGithub /></a>
-              <a href="https://instagram.com/fndy.fr"><AiFillInstagram /></a>
+            <div className="text-4xl flex justify-center gap-10 py-3 text-gray-600 dark:text-gray-400 md:gap-16 lg:gap-20">
+              <a href="https://x.com/FandyFrOfficial" target="_blank">
+                <FaXTwitter />
+              </a>
+              <a href="https://github.com/Fandyfr" target="_blank">
+                <AiFillGithub />
+              </a>
+              <a href="https://instagram.com/fndy.fr" target="_blank">
+                <AiFillInstagram />
+              </a>
+              <a href="https://www.reddit.com/user/FandyFafa/" target="_blank">
+                <AiFillRedditCircle />
+              </a>
             </div>
-            <div className="mx-auto bg-gradient-to-b from-teal-500 rounded-full w-80 h-80 relative overflow-hidden mt-20 md:h-96 md:w-96">
+            <div className="mx-auto bg-gradient-to-b from-red-500 rounded-full w-60 h-60 relative overflow-hidden mt-10 md:h-80 md:w-80 lg:h-96 lg:w-96">
               <Image src={headicon} layout="fill" objectFit="cover" />
             </div>
           </div>
         </section>
         <section>
           <div>
-            <h3 className="text-3xl py-1 dark:text-white ">Tentang saya </h3>
-            <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
-              Sejak awal perjalanan saya sebagai desainer dan
-              pengembang, saya telah melakukan pembuatan apiklasi C++, dan
-              <span className="text-teal-500"> Web, </span>
-              Saya Ingin <span className="text-teal-500">belajar </span>
+            <h3 className="text-2xl py-1 dark:text-white md:text-3xl">
+              ⛩️ Tentang saya 🦊
+            </h3>
+            <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200 md:text-lg lg:text-xl">
+              Sejak awal perjalanan saya sebagai desainer dan pengembang, saya
+              telah melakukan pembuatan apiklasi C++, dan
+              <span className="text-orange-500"> Web, </span>Saya Ingin{" "}
+              <span className="text-orange-500">belajar </span>
               untuk semakin maju mengembangkan website, dan apiklasi, dan
-              semakin bertambah maju inovasi untuk yang ada di dunia internet sekarang.
+              semakin bertambah maju inovasi untuk yang ada di dunia internet
+              sekarang.
             </p>
-            <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
-              Saya dalam tahap Belajar Rekayasa Perangkat Lunak di SMK TI Bali global Denpasar
+            <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200 md:text-lg lg:text-xl">
+              Saya dalam tahap Belajar Rekayasa Perangkat Lunak di SMK TI Bali
+              Global Denpasar
             </p>
           </div>
           <div className="lg:flex gap-10">
-            <div className="text-center shadow-lg p-10 rounded-xl my-10  dark:bg-white flex-1">
+            <div className="text-center shadow-lg p-5 rounded-xl my-10 dark:bg-white flex-1 md:p-10">
               <Image src={desain} width={100} height={100} />
-              <h3 className="text-lg font-medium pt-8 pb-2  ">
-                Alat Desain
-              </h3>
+              <h3 className="text-lg font-medium pt-8 pb-2">Alat Desain</h3>
               <p className="py-2">
-                Ini adalah beberapa alat untuk mendesain sebuah Website atau App.
+                Ini adalah beberapa alat untuk mendesain sebuah Website atau
+                App.
               </p>
-              <h4 className="py-4 text-teal-600">Alat Desain App or Web</h4>
+              <h4 className="py-4 text-orange-600">Alat Desain App or Web</h4>
               <p className="text-gray-800 py-1">Figma</p>
               <p className="text-gray-800 py-1">Sketch</p>
               <p className="text-gray-800 py-1">Adobe XD</p>
               <p className="text-gray-800 py-1">Adobe Illustrator</p>
             </div>
-            <div className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1">
+            <div className="text-center shadow-lg p-5 rounded-xl my-10 dark:bg-white flex-1 md:p-10">
               <Image src={code} width={100} height={100} />
-              <h3 className="text-lg font-medium pt-8 pb-2 ">
+              <h3 className="text-lg font-medium pt-8 pb-2">
                 Bahasa Pemograman
               </h3>
               <p className="py-2">
-              Ini adalah beberapa bahasa pemogramnan yang saya pelajari.
+                Ini adalah beberapa bahasa pemograman yang saya pelajari.
               </p>
-              <h4 className="py-4 text-teal-600">Bahasa Pemograman</h4>
+              <h4 className="py-4 text-orange-600">Bahasa Pemograman</h4>
               <p className="text-gray-800 py-1">HTML5</p>
               <p className="text-gray-800 py-1">JavaScript</p>
               <p className="text-gray-800 py-1">PHP</p>
               <p className="text-gray-800 py-1">Flutter</p>
             </div>
-            <div className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1">
+            <div className="text-center shadow-lg p-5 rounded-xl my-10 dark:bg-white flex-1 md:p-10">
               <Image src={dev} width={140} height={140} />
-              <h3 className="text-lg font-medium pt-8 pb-2 ">APP Code</h3>
+              <h3 className="text-lg font-medium pt-8 pb-2">APP Code</h3>
               <p className="py-2">
-                Beberapa apiklasi yang saya pake untuk
-                Coding
+                Beberapa apiklasi yang saya pake untuk Coding
               </p>
-              <h4 className="py-4 text-teal-600">App Coding</h4>
+              <h4 className="py-4 text-orange-600">App Coding</h4>
               <p className="text-gray-800 py-1">Visual Studio Code</p>
               <p className="text-gray-800 py-1">Visual Studio</p>
               <p className="text-gray-800 py-1">Android Studio</p>
@@ -126,20 +150,27 @@ export default function Home() {
         </section>
         <section className="py-10">
           <div>
-            <h3 className="text-3xl py-1 dark:text-white ">Projek</h3>
-            <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
+            <h3 className="text-2xl py-1 dark:text-white md:text-3xl">
+              🔥 My Project 🔥
+            </h3>
+            <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200 md:text-lg lg:text-xl">
               Ini adalah beberapa project saya, Mempakai apiklasi
-              <span className="text-teal-500"> Visual Studio Code, </span>
-              dan Mempakai bahasa pemograman <span className="text-teal-500">HTML,PHP,JavaScript, </span>
-              Untuk menciptakan produk digital untuk keperluan bisnis dan konsumen.
+              <span className="text-orange-500"> Visual Studio Code, </span>
+              dan Mempakai bahasa pemograman{" "}
+              <span className="text-orange-500">HTML,PHP,JavaScript, </span>
+              Untuk menciptakan produk digital untuk keperluan bisnis dan
+              konsumen.
             </p>
-            <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
+            <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200 md:text-lg lg:text-xl">
               .
             </p>
           </div>
           <div className="flex flex-col gap-10 py-10 lg:flex-row lg:flex-wrap">
-            <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">Project jelek ga ditampilkan, hanya project bagus akan ditampilkan disini.</p>
-            {/* <div className="basis-1/3 flex-1 ">
+            <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200 text-center">
+              Project jelek ga ditampilkan, hanya project bagus akan ditampilkan
+              disini :D
+            </p>
+            {/* <div className="basis-1/3 flex-1">
               <Image
                 className="rounded-lg object-cover"
                 width={"100%"}
