@@ -4,11 +4,12 @@ import {
   AiFillInstagram,
   AiFillTwitterCircle,
 } from "react-icons/ai";
+import { FaXTwitter } from "react-icons/fa6";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 import { useState } from "react";
-import deved from "../public/dev-ed-wave.png";
+import headicon from "../public/headicon.png";
 import code from "../public/code.png";
-import design from "../public/design.png";
+import desain from "../public/desain.png";
 import dev from "../public/dev.png";
 import Image from "next/image";
 
@@ -60,7 +61,7 @@ export default function Home() {
               <a href="https://instagram.com/fndy.fr"><AiFillInstagram /></a>
             </div>
             <div className="mx-auto bg-gradient-to-b from-teal-500 rounded-full w-80 h-80 relative overflow-hidden mt-20 md:h-96 md:w-96">
-              <Image src={deved} layout="fill" objectFit="cover" />
+              <Image src={headicon} layout="fill" objectFit="cover" />
             </div>
           </div>
         </section>
@@ -69,7 +70,7 @@ export default function Home() {
             <h3 className="text-3xl py-1 dark:text-white ">Tentang saya </h3>
             <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
               Sejak awal perjalanan saya sebagai desainer dan
-              pengembang, saya telah melakukan pembuatan apiklasi, dan
+              pengembang, saya telah melakukan pembuatan apiklasi C++, dan
               <span className="text-teal-500"> Web, </span>
               Saya Ingin <span className="text-teal-500">belajar </span>
               untuk semakin maju mengembangkan website, dan apiklasi, dan
@@ -81,18 +82,18 @@ export default function Home() {
           </div>
           <div className="lg:flex gap-10">
             <div className="text-center shadow-lg p-10 rounded-xl my-10  dark:bg-white flex-1">
-              <Image src={design} width={100} height={100} />
+              <Image src={desain} width={100} height={100} />
               <h3 className="text-lg font-medium pt-8 pb-2  ">
                 Alat Desain
               </h3>
               <p className="py-2">
-                Ini adalah beberapa alat untuk mendesain sebuah website.
+                Ini adalah beberapa alat untuk mendesain sebuah Website atau App.
               </p>
-              <h4 className="py-4 text-teal-600">Alat Desain</h4>
-              <p className="text-gray-800 py-1">Bootstrap Studio</p>
+              <h4 className="py-4 text-teal-600">Alat Desain App or Web</h4>
               <p className="text-gray-800 py-1">Figma</p>
-              <p className="text-gray-800 py-1">InVision Studio</p>
               <p className="text-gray-800 py-1">Sketch</p>
+              <p className="text-gray-800 py-1">Adobe XD</p>
+              <p className="text-gray-800 py-1">Adobe Illustrator</p>
             </div>
             <div className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1">
               <Image src={code} width={100} height={100} />
@@ -103,11 +104,10 @@ export default function Home() {
               Ini adalah beberapa bahasa pemogramnan yang saya pelajari.
               </p>
               <h4 className="py-4 text-teal-600">Bahasa Pemograman</h4>
-              <p className="text-gray-800 py-1">Flutter</p>
-              <p className="text-gray-800 py-1">Dart</p>
-              <p className="text-gray-800 py-1">ReactJS</p>
+              <p className="text-gray-800 py-1">HTML5</p>
               <p className="text-gray-800 py-1">JavaScript</p>
-              <p className="text-gray-800 py-1">Python</p>
+              <p className="text-gray-800 py-1">PHP</p>
+              <p className="text-gray-800 py-1">Flutter</p>
             </div>
             <div className="text-center shadow-lg p-10 rounded-xl my-10 dark:bg-white flex-1">
               <Image src={dev} width={140} height={140} />
@@ -130,7 +130,7 @@ export default function Home() {
             <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
               Ini adalah beberapa project saya, Mempakai apiklasi
               <span className="text-teal-500"> Visual Studio Code, </span>
-              dan Mempakai bahasa pemograman <span className="text-teal-500">ReactJS,Dart,Python, </span>
+              dan Mempakai bahasa pemograman <span className="text-teal-500">HTML,PHP,JavaScript, </span>
               Untuk menciptakan produk digital untuk keperluan bisnis dan konsumen.
             </p>
             <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">
@@ -138,7 +138,7 @@ export default function Home() {
             </p>
           </div>
           <div className="flex flex-col gap-10 py-10 lg:flex-row lg:flex-wrap">
-            <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">Belum bikin project apa apa hehe, project bagus akan ditampilkan disini.</p>
+            <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200">Project jelek ga ditampilkan, hanya project bagus akan ditampilkan disini.</p>
             {/* <div className="basis-1/3 flex-1 ">
               <Image
                 className="rounded-lg object-cover"
