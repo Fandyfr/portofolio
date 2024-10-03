@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from 'next/link';
 import {
   AiFillGithub,
   AiFillInstagram,
@@ -10,6 +11,7 @@ import { useState } from "react";
 import headicon from "../public/headicon.png";
 import code from "../public/code.png";
 import desain from "../public/desain.png";
+import project from "../public/project.png";
 import dev from "../public/dev.png";
 import Image from "next/image";
 
@@ -115,8 +117,6 @@ export default function Home() {
                 App.
               </p>
               <h4 className="py-4 text-orange-600">Alat Desain App or Web</h4>
-              <p className="text-gray-800 py-1">Figma</p>
-              <p className="text-gray-800 py-1">Sketch</p>
               <p className="text-gray-800 py-1">Adobe XD</p>
               <p className="text-gray-800 py-1">Adobe Illustrator</p>
             </div>
@@ -129,10 +129,10 @@ export default function Home() {
                 Ini adalah beberapa bahasa pemograman yang saya pelajari.
               </p>
               <h4 className="py-4 text-orange-600">Bahasa Pemograman</h4>
-              <p className="text-gray-800 py-1">HTML5</p>
+              <p className="text-gray-800 py-1">NextJS</p>
               <p className="text-gray-800 py-1">JavaScript</p>
               <p className="text-gray-800 py-1">PHP</p>
-              <p className="text-gray-800 py-1">Flutter</p>
+              <p className="text-gray-800 py-1">C++</p>
             </div>
             <div className="text-center shadow-lg p-5 rounded-xl my-10 dark:bg-white flex-1 md:p-10">
               <Image src={dev} width={140} height={140} />
@@ -157,7 +157,7 @@ export default function Home() {
               Ini adalah beberapa project saya, Mempakai apiklasi
               <span className="text-orange-500"> Visual Studio Code, </span>
               dan Mempakai bahasa pemograman{" "}
-              <span className="text-orange-500">HTML,PHP,JavaScript, </span>
+              <span className="text-orange-500">React,PHP,JavaScript, dan NextJS </span>
               Untuk menciptakan produk digital untuk keperluan bisnis dan
               konsumen.
             </p>
@@ -165,20 +165,39 @@ export default function Home() {
               .
             </p>
           </div>
-          <div className="flex flex-col gap-10 py-10 lg:flex-row lg:flex-wrap">
-            <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200 text-center">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 py-10">
+            {/* <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200 text-center">
               Project jelek ga ditampilkan, hanya project bagus akan ditampilkan
               disini :D
-            </p>
-            {/* <div className="basis-1/3 flex-1">
+            </p> */}
+            <div className="relative rounded-lg overflow-hidden shadow-lg group">
               <Image
-                className="rounded-lg object-cover"
-                width={"100%"}
-                height={"100%"}
+                className="object-cover transition-all duration-300"
+                width={1920}
+                height={1080}
+                quality={100}
                 layout="responsive"
-                src={web1}
+                src={project}
+                alt="Project Image"
               />
+
+              {/* Dark overlay and text on hover */}
+              <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-center items-center">
+                <h2 className="text-[#7695FF] text-2xl font-bold mb-2 text-sm md:text-xl">Kawaii Stream</h2>
+                <p className="text-white text-md md:text-sm mb-2 px-4 text-center">
+                  Tonton anime terbaru dan baca manga favorit Anda secara gratis. Nikmati streaming berkualitas tinggi dan perpustakaan manga yang terus bertambah!
+                </p>
+                <Link href="#" target="_blank">
+                  <button className="bg-white text-black font-semibold py-2 px-4 rounded-lg shadow-lg hover:bg-gray-200 transition duration-300 z-30">
+                    Go to Web
+                  </button>
+                </Link>
+              </div>
+
+              {/* Shadow on hover */}
+              <div className="absolute inset-0 shadow-lg group-hover:shadow-2xl transition-shadow duration-300"></div>
             </div>
+            {/* 
             <div className="basis-1/3 flex-1">
               <Image
                 className="rounded-lg object-cover"
