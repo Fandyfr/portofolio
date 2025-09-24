@@ -1,251 +1,240 @@
 import Head from "next/head";
-import Link from 'next/link';
+import Link from "next/link";
+import { useState, useEffect } from "react";
+import { Transition } from "@headlessui/react";
+import { motion as m } from "framer-motion";
+import Image from "next/image";
+import headicon from "../public/headicon.png";
+import code from "../public/code.png";
+import desain from "../public/desain.png";
+import dev from "../public/dev.png";
+import Projects from "@/components/Home/project";
+import Footer from "@/components/shared/footer";
+import { BsFillMoonStarsFill } from "react-icons/bs";
 import {
   AiFillGithub,
   AiFillInstagram,
   AiFillRedditCircle,
 } from "react-icons/ai";
 import { FaXTwitter } from "react-icons/fa6";
-import { BsFillMoonStarsFill } from "react-icons/bs";
-import { useState } from "react";
-import headicon from "../public/headicon.png";
-import code from "../public/code.png";
-import desain from "../public/desain.png";
-import project from "../public/project.png";
-import dev from "../public/dev.png";
-import Image from "next/image";
+import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  useEffect(() => {
+    const saved = localStorage.getItem("theme");
+    if (saved === "dark") {
+      setDarkMode(true);
+      document.documentElement.classList.add("dark");
+    }
+  }, []);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [darkMode]);
 
   return (
     <div className={darkMode ? "dark" : ""}>
       <Head>
         <title>FandyFr | Portofolio Page</title>
-        {/* META */}
         <meta name="description" content="Dibuat dengan Hati" />
-        <meta name="keywords" content="portofolio, web development, desain grafis, aplikasi mobile, proyek, kolaborasi, FandyFr, Fandy Fathurrohman"></meta>
-        <meta name="author" content="Fandy Fathurrohman"></meta>
-        <meta name="robots" content="index, follow"></meta>
-        {/* Twitter / X */}
-        <meta property="twitter:card" content="summary_large_image"></meta>
-        <meta property="twitter:url" content="https://portofolio-fandyfr.vercel.app/"></meta>
-        <meta property="twitter:title" content="FandyFr Portofolio"></meta>
-        <meta property="twitter:description" content="Portofolio saya mencakup proyek-proyek web development, desain grafis, dan aplikasi mobile. Lihat karya terbaik saya dan hubungi saya untuk kolaborasi lebih lanjut."></meta>
-        <meta property="twitter:image" content="https://portofolio-fandyfr.vercel.app/avatar.png"></meta>
-        {/* Icon */}
-        <link rel="icon" href="/avatar.png" />
       </Head>
-      <main className="bg-white px-5 dark:bg-gray-900 md:px-10 lg:px-20">
-        <section className="min-h-screen">
-          <nav className="py-5 mb-10 flex justify-between dark:text-white">
-            <a href="https://portofolio-fandyfr.vercel.app/">
-              <h1 className="font-burtons text-xl">FandyFr 🦊</h1>
-            </a>
-            <ul className="flex items-center">
-              <li>
-                <BsFillMoonStarsFill
-                  onClick={() => setDarkMode(!darkMode)}
-                  className="cursor-pointer text-2xl"
-                />
-              </li>
-              <li>
-                <a
-                  className="bg-gradient-to-r from-red-500 to-orange-500 text-white px-4 py-2 border-none rounded-md ml-8"
-                  href="https://github.com/Fandyfr"
-                >
-                  My GitHub
-                </a>
-              </li>
+
+      <main className="bg-white dark:bg-gray-900 transition-colors duration-300 px-5 md:px-10 lg:px-20">
+        {/* <Navbar /> */}
+        <nav className="py-5 mb-10 flex justify-between items-center">
+          <Link href="/" className="font-burtons text-xl">
+            FandyFr 🦊
+          </Link>
+          <ul className="flex items-center gap-4 sm:gap-6">
+            <li>
+              <BsFillMoonStarsFill
+                onClick={() => setDarkMode(!darkMode)}
+                className="cursor-pointer text-2xl"
+              />
+            </li>
+            <li>
+              <button
+                onClick={() => setIsOpen(true)}
+                className="bg-gradient-to-r from-red-500 to-orange-500 text-white px-4 py-2 rounded-md hover:opacity-90 transition"
+              >
+                Menu
+              </button>
+            </li>
+          </ul>
+        </nav>
+
+        <Dialog open={isOpen} onClose={() => setIsOpen(false)}>
+          <DialogPanel
+            className="fixed top-24 right-5 z-50 w-72 rounded-2xl shadow-xl p-6 
+                     bg-white dark:bg-gray-900
+                     border border-gray-200 dark:border-gray-700"
+          >
+            <DialogTitle className="font-bold text-lg mb-4 text-gray-900 dark:text-white">
+              Quick Links
+            </DialogTitle>
+            <ul className="space-y-4">
+              {[
+                {
+                  href: "https://github.com/Fandyfr",
+                  icon: <AiFillGithub />,
+                  text: "GitHub",
+                },
+                {
+                  href: "https://x.com/FandyFrOfficial",
+                  icon: <FaXTwitter />,
+                  text: "Twitter",
+                },
+                {
+                  href: "https://instagram.com/fndy.fr",
+                  icon: <AiFillInstagram />,
+                  text: "Instagram",
+                },
+                {
+                  href: "https://www.reddit.com/user/FandyFafa/",
+                  icon: <AiFillRedditCircle />,
+                  text: "Reddit",
+                },
+              ].map((link, i) => (
+                <li key={i}>
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-gray-800 dark:text-gray-200 hover:text-orange-400 transition"
+                  >
+                    {link.icon} {link.text}
+                  </a>
+                </li>
+              ))}
             </ul>
-          </nav>
-          <div className="text-center p-5 py-10">
-            <h2 className="text-4xl py-2 text-orange-600 font-medium dark:text-orange-400 md:text-5xl lg:text-6xl">
+          </DialogPanel>
+        </Dialog>
+
+        <section className="relative min-h-screen w-full flex flex-col items-center justify-center text-center overflow-hidden">
+          <m.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-4xl md:text-5xl lg:text-6xl py-2 font-bold text-orange-600">
               Fandy Fathurrohman
             </h2>
-            <h3 className="text-xl py-2 dark:text-white md:text-2xl lg:text-3xl">
+            <h3 className="text-xl md:text-2xl lg:text-3xl py-2 text-gray-800 dark:text-white">
               🦊 Developer and Designer 🦊
             </h3>
-            <p className="text-md py-5 leading-8 text-gray-800 dark:text-gray-200 max-w-xl mx-auto md:text-lg lg:text-xl">
-              Bersekolah di SMK TI BALI Global Denpasar, Jurusan RPL (Rekayasa
-              Perangkat Lunak).
+            <p className="max-w-xl mx-auto py-5 text-gray-700 md:text-lg dark:text-white">
+              Rekayasa Perangkat Lunak student in SMK TI Bali Global Denpasar.
+              Passionate in Web & App Development.
             </p>
-            <div className="text-4xl flex justify-center gap-10 py-3 text-gray-600 dark:text-gray-400 md:gap-16 lg:gap-20">
-              <a href="https://x.com/FandyFrOfficial" target="_blank">
-                <FaXTwitter />
-              </a>
-              <a href="https://github.com/Fandyfr" target="_blank">
-                <AiFillGithub />
-              </a>
-              <a href="https://instagram.com/fndy.fr" target="_blank">
-                <AiFillInstagram />
-              </a>
-              <a href="https://www.reddit.com/user/FandyFafa/" target="_blank">
-                <AiFillRedditCircle />
-              </a>
-            </div>
-            <div className="mx-auto bg-gradient-to-b from-red-500 rounded-full w-60 h-60 relative overflow-hidden mt-10 md:h-80 md:w-80 lg:h-96 lg:w-96">
-              <Image src={headicon} layout="fill" objectFit="cover" />
-            </div>
-          </div>
-        </section>
-        <section>
-          <div>
-            <h3 className="text-2xl py-1 dark:text-white md:text-3xl">
-              ⛩️ Tentang saya 🦊
-            </h3>
-            <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200 md:text-lg lg:text-xl">
-              Sejak awal perjalanan saya sebagai desainer dan pengembang, saya
-              telah melakukan pembuatan apiklasi C++, dan
-              <span className="text-orange-500"> Web, </span>Saya Ingin{" "}
-              <span className="text-orange-500">belajar </span>
-              untuk semakin maju mengembangkan website, dan apiklasi, dan
-              semakin bertambah maju inovasi untuk yang ada di dunia internet
-              sekarang.
-            </p>
-            <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200 md:text-lg lg:text-xl">
-              Saya dalam tahap Belajar Rekayasa Perangkat Lunak di SMK TI Bali
-              Global Denpasar
-            </p>
-          </div>
-          <div className="lg:flex gap-10">
-            <div className="text-center shadow-lg p-5 rounded-xl my-10 dark:bg-white flex-1 md:p-10">
-              <Image src={desain} width={100} height={100} />
-              <h3 className="text-lg font-medium pt-8 pb-2">Alat Desain</h3>
-              <p className="py-2">
-                Ini adalah beberapa alat untuk mendesain sebuah Website atau
-                App.
-              </p>
-              <h4 className="py-4 text-orange-600">Alat Desain App or Web</h4>
-              <p className="text-gray-800 py-1">Adobe XD</p>
-              <p className="text-gray-800 py-1">Adobe Illustrator</p>
-            </div>
-            <div className="text-center shadow-lg p-5 rounded-xl my-10 dark:bg-white flex-1 md:p-10">
-              <Image src={code} width={100} height={100} />
-              <h3 className="text-lg font-medium pt-8 pb-2">
-                Bahasa Pemograman
-              </h3>
-              <p className="py-2">
-                Ini adalah beberapa bahasa pemograman yang saya pelajari.
-              </p>
-              <h4 className="py-4 text-orange-600">Bahasa Pemograman</h4>
-              <p className="text-gray-800 py-1">NextJS</p>
-              <p className="text-gray-800 py-1">JavaScript</p>
-              <p className="text-gray-800 py-1">PHP</p>
-              <p className="text-gray-800 py-1">C++</p>
-            </div>
-            <div className="text-center shadow-lg p-5 rounded-xl my-10 dark:bg-white flex-1 md:p-10">
-              <Image src={dev} width={140} height={140} />
-              <h3 className="text-lg font-medium pt-8 pb-2">APP Code</h3>
-              <p className="py-2">
-                Beberapa apiklasi yang saya pake untuk Coding
-              </p>
-              <h4 className="py-4 text-orange-600">App Coding</h4>
-              <p className="text-gray-800 py-1">Visual Studio Code</p>
-              <p className="text-gray-800 py-1">Visual Studio</p>
-              <p className="text-gray-800 py-1">Android Studio</p>
-              <p className="text-gray-800 py-1">Dev C++</p>
-            </div>
-          </div>
-        </section>
-        <section className="py-10">
-          <div>
-            <h3 className="text-2xl py-1 dark:text-white md:text-3xl">
-              🔥 My Project 🔥
-            </h3>
-            <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200 md:text-lg lg:text-xl">
-              Ini adalah beberapa project saya, Mempakai apiklasi
-              <span className="text-orange-500"> Visual Studio Code, </span>
-              dan Mempakai bahasa pemograman{" "}
-              <span className="text-orange-500">React,PHP,JavaScript, dan NextJS </span>
-              Untuk menciptakan produk digital untuk keperluan bisnis dan
-              konsumen.
-            </p>
-            <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200 md:text-lg lg:text-xl">
-              .
-            </p>
-          </div>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 py-10">
-            {/* <p className="text-md py-2 leading-8 text-gray-800 dark:text-gray-200 text-center">
-              Project jelek ga ditampilkan, hanya project bagus akan ditampilkan
-              disini :D
-            </p> */}
-            <div className="relative rounded-lg overflow-hidden shadow-lg group">
+          </m.div>
+          <m.div
+            initial={{ opacity: 0, scale: 0.6, rotate: -10 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            whileHover={{
+              scale: 1.05,
+              rotate: 2,
+              transition: { type: "spring", stiffness: 200, damping: 15 },
+            }}
+            className="relative mt-12 w-56 h-56 md:w-72 md:h-72 lg:w-80 lg:h-80"
+          >
+            <m.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5, duration: 1 }}
+              className="absolute inset-0 rounded-full bg-gradient-to-tr from-pink-400 via-orange-300 to-yellow-400 animate-spin-slow blur-xl opacity-50"
+            />
+            <div className="relative w-full h-full rounded-full overflow-hidden shadow-2xl">
               <Image
-                className="object-cover transition-all duration-300"
-                width={1920}
-                height={1080}
-                quality={100}
-                layout="responsive"
-                src={project}
-                alt="Project Image"
+                src={headicon}
+                alt="profile"
+                fill
+                className="object-cover"
               />
+            </div>
+            <m.div
+              animate={{ scale: [1, 1.1, 1] }}
+              transition={{
+                repeat: Infinity,
+                duration: 3,
+                ease: "easeInOut",
+              }}
+              className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-400/30 via-pink-300/20 to-transparent blur-3xl"
+            />
+          </m.div>
+        </section>
 
-              {/* Dark overlay and text on hover */}
-              <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-center items-center">
-                <h2 className="text-[#7695FF] text-2xl font-bold mb-2 text-sm md:text-xl">Kawaii Stream</h2>
-                <p className="text-white text-md md:text-sm mb-2 px-4 text-center">
-                  Tonton anime terbaru dan baca manga favorit Anda secara gratis. Nikmati streaming berkualitas tinggi dan perpustakaan manga yang terus bertambah!
-                </p>
-                <Link href="#" target="_blank">
-                  <button className="bg-white text-black font-semibold py-2 px-4 rounded-lg shadow-lg hover:bg-gray-200 transition duration-300 z-30">
-                    Go to Web
-                  </button>
-                </Link>
-              </div>
+        <section className="py-16 relative">
+          <h3 className="text-3xl font-semibold text-center mb-10 dark:text-white">
+            ⚡ Skills & Tools
+          </h3>
 
-              {/* Shadow on hover */}
-              <div className="absolute inset-0 shadow-lg group-hover:shadow-2xl transition-shadow duration-300"></div>
-            </div>
-            {/* 
-            <div className="basis-1/3 flex-1">
-              <Image
-                className="rounded-lg object-cover"
-                width={"100%"}
-                height={"100%"}
-                layout="responsive"
-                src={web2}
-              />
-            </div>
-            <div className="basis-1/3 flex-1">
-              <Image
-                className="rounded-lg object-cover"
-                width={"100%"}
-                height={"100%"}
-                layout="responsive"
-                src={web3}
-              />
-            </div>
-            <div className="basis-1/3 flex-1">
-              <Image
-                className="rounded-lg object-cover"
-                width={"100%"}
-                height={"100%"}
-                layout="responsive"
-                src={web4}
-              />
-            </div>
-            <div className="basis-1/3 flex-1">
-              <Image
-                className="rounded-lg object-cover"
-                width={"100%"}
-                height={"100%"}
-                layout="responsive"
-                src={web5}
-              />
-            </div>
-            <div className="basis-1/3 flex-1">
-              <Image
-                className="rounded-lg object-cover"
-                width={"100%"}
-                height={"100%"}
-                layout="responsive"
-                src={web6}
-              />
-            </div> */}
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 px-6">
+            {[
+              { title: "Design", icon: desain, items: ["Figma", "Adobe XD"] },
+              {
+                title: "Languages",
+                icon: code,
+                items: ["NextJS", "JavaScript", "PHP", "C++"],
+              },
+              {
+                title: "Tools",
+                icon: dev,
+                items: ["VS Code", "Android Studio", "Git"],
+              },
+            ].map((card, i) => (
+              <m.div
+                key={i}
+                whileHover={{ scale: 1.05 }}
+                className="relative rounded-2xl overflow-hidden shadow-lg p-[1px]"
+              >
+                <div className="rounded-2xl bg-white/20 dark:bg-gray-900/30 backdrop-blur-lg border border-white/20 dark:border-gray-700/30 p-6 h-full flex flex-col justify-center items-center text-center">
+                  <Image
+                    src={card.icon}
+                    alt={card.title}
+                    width={80}
+                    height={80}
+                    className="mx-auto drop-shadow-lg"
+                  />
+
+                  <h4 className="text-lg font-semibold pt-4 pb-2 text-gray-900 dark:text-white">
+                    {card.title}
+                  </h4>
+                  <Transition
+                    appear={true}
+                    show={true}
+                    enter="transition ease-out duration-500"
+                    enterFrom="opacity-0 translate-y-2"
+                    enterTo="opacity-100 translate-y-0"
+                  >
+                    <ul className="space-y-1">
+                      {card.items.map((item, j) => (
+                        <li
+                          key={j}
+                          className="text-sm text-gray-700 dark:text-gray-300 hover:text-orange-400 transition"
+                        >
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </Transition>
+                </div>
+              </m.div>
+            ))}
           </div>
         </section>
+
+        <Projects />
       </main>
+      <Footer />
     </div>
   );
 }
