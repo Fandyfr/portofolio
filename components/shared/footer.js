@@ -22,7 +22,7 @@ export default function Footer() {
       label: "Twitter",
     },
     {
-      href: "https://instagram.com/fndy.fr",
+      href: "https://instagram.com/fandyfr_.12",
       icon: <AiFillInstagram />,
       label: "Instagram",
     },
@@ -64,13 +64,19 @@ export default function Footer() {
             Quick Links
           </h3>
           <ul className="space-y-2 text-sm">
-            {["Home", "Projects", "About", "Contact"].map((item, i) => (
+            {[
+              { label: "Home", href: "/" },
+              { label: "About", href: "/about" },
+              { label: "Skills", href: "/skills" },
+              { label: "Projects", href: "/projects" },
+              { label: "Contact", href: "/contact" },
+            ].map((item, i) => (
               <li key={i}>
                 <Link
-                  href={`/${item.toLowerCase()}`}
+                  href={item.href}
                   className="text-gray-600 dark:text-gray-400 hover:text-orange-500 dark:hover:text-orange-400 transition"
                 >
-                  {item}
+                  {item.label}
                 </Link>
               </li>
             ))}

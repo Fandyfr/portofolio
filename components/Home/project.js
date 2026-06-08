@@ -16,7 +16,7 @@ export default function Projects() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <section className="py-16">
+    <section className="py-16" id="projects">
       <h3 className="text-3xl font-semibold text-center mb-10 dark:text-white">
         🔥 My Projects
       </h3>
@@ -49,9 +49,9 @@ export default function Projects() {
               KawaiiStream
             </DialogTitle>
             <DialogDescription className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
-              Platform streaming anime gratis dengan kualitas tinggi. Nikmati
-              anime terbaru & manga favorit dalam satu tempat, kapan saja, di
-              perangkat apapun.
+              A free anime streaming platform with high quality playback. Watch
+              the latest anime and your favorite manga in one place, anytime, on
+              any device.
             </DialogDescription>
           </DialogHeader>
 
