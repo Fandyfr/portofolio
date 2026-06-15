@@ -1,13 +1,12 @@
 {
   "homepage": "https://fandyfr.github.io/portofolio",
   "name": "fandyfr",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "lint": "next lint"
   },
