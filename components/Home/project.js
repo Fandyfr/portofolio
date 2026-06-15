@@ -36,9 +36,8 @@ const projects = [
   },
 ];
 
-const [selectedProject, setSelectedProject] = useState < any > null;
-
 export default function Projects() {
+  const [selectedProject, setSelectedProject] = useState < any > null;
   const [isOpen, setIsOpen] = useState(false);
 
   return (
