@@ -12,6 +12,32 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 
+const projects = [
+  {
+    id: 1,
+    title: "KawaiiStream",
+    description: "Anime streaming platform",
+    image: "/project/kawaiistream.jpg",
+    url: "https://kawaiistream.vercel.app",
+  },
+  // {
+  //   id: 2,
+  //   title: "KitsuZone",
+  //   description: "Anime streaming platform with Modern UI like Crunch",
+  //   image: "/project/kawaiistream.jpg",
+  //   url: "#",
+  // },
+  {
+    id: 2,
+    title: "Kimajaya Nusantara",
+    description: "Travel service platform",
+    image: "/project/kimajaya.png",
+    url: "https://kimajaya.my.id",
+  },
+];
+
+const [selectedProject, setSelectedProject] = useState < any > null;
+
 export default function Projects() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -22,60 +48,55 @@ export default function Projects() {
       </h3>
 
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        <m.div
-          whileHover={{ scale: 1.05 }}
-          transition={{ type: "spring", stiffness: 200, damping: 15 }}
-          className="relative rounded-xl overflow-hidden shadow-lg group cursor-pointer border border-gray-200 dark:border-gray-800"
-          onClick={() => setIsOpen(true)}
-        >
-          <div className="aspect-video w-full relative">
-            <Image
-              src="/project.png"
-              alt="Project"
-              fill
-              className="object-cover group-hover:scale-110 transition-transform duration-500"
-            />
-          </div>
-          <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
-            <p className="text-white text-lg font-semibold">View Details</p>
-          </div>
-        </m.div>
+        {projects.map((project) => (
+          <m.div
+            key={project.id}
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 200, damping: 15 }}
+            className="relative rounded-xl overflow-hidden shadow-lg group cursor-pointer border border-gray-200 dark:border-gray-800"
+            onClick={() => setSelectedProject(project)}
+          >
+            <div className="aspect-video w-full relative">
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+            </div>
+
+            <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+              <p className="text-white text-lg font-semibold">
+                {project.title}
+              </p>
+            </div>
+          </m.div>
+        ))}
       </div>
 
-      <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="max-w-3xl w-full rounded-2xl shadow-2xl p-6 sm:p-10 bg-white dark:bg-gray-900">
-          <DialogHeader className="space-y-4">
-            <DialogTitle className="text-3xl font-extrabold bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
-              KawaiiStream
-            </DialogTitle>
-            <DialogDescription className="text-gray-600 dark:text-gray-300 text-base leading-relaxed">
-              A free anime streaming platform with high quality playback. Watch
-              the latest anime and your favorite manga in one place, anytime, on
-              any device.
+      <Dialog
+        open={!!selectedProject}
+        onOpenChange={() => setSelectedProject(null)}
+      >
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>{selectedProject?.title}</DialogTitle>
+
+            <DialogDescription>
+              {selectedProject?.description}
             </DialogDescription>
           </DialogHeader>
 
-          <div className="relative w-full h-auto rounded-lg overflow-hidden my-6">
-            <Image
-              src="/project.png"
-              alt="Project Preview"
-              width={1200}
-              height={600}
-              className="w-full h-auto object-contain"
-            />
-          </div>
+          <Image
+            src={selectedProject?.image || ""}
+            alt={selectedProject?.title || ""}
+            width={1200}
+            height={600}
+          />
 
-          <div className="flex flex-col sm:flex-row gap-4 mt-6">
-            <Link
-              href="https://kawaiistream.vercel.app"
-              target="_blank"
-              className="flex-1"
-            >
-              <button className="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 rounded-lg font-semibold text-lg hover:scale-[1.02] transition">
-                🌐 Visit Website
-              </button>
-            </Link>
-          </div>
+          <Link href={selectedProject?.url || "#"} target="_blank">
+            <button>🌐 Visit Website</button>
+          </Link>
         </DialogContent>
       </Dialog>
     </section>
