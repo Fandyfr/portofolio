@@ -18,7 +18,7 @@ export default function Projects() {
       id: 1,
       title: "KawaiiStream",
       description: "Anime streaming platform",
-      image: "/project/kawaiistream.jpg",
+      image: "/project/kawaiistream.png",
       url: "https://kawaiistream.vercel.app",
     },
     // {
