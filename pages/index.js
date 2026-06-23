@@ -141,7 +141,7 @@ export default function Home() {
                 web ecosystems and custom AI models.
               </p>
               <div className="text-xs text-gray-500 italic">
-                "Building the future with Zero Trust & High Fidelity Audio."
+                {'"Building the future with Zero Trust & High Fidelity Audio."'}
               </div>
             </div>
           );

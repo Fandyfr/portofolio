@@ -12,32 +12,31 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 
-const projects = [
-  {
-    id: 1,
-    title: "KawaiiStream",
-    description: "Anime streaming platform",
-    image: "/project/kawaiistream.jpg",
-    url: "https://kawaiistream.vercel.app",
-  },
-  // {
-  //   id: 2,
-  //   title: "KitsuZone",
-  //   description: "Anime streaming platform with Modern UI like Crunch",
-  //   image: "/project/kawaiistream.jpg",
-  //   url: "#",
-  // },
-  {
-    id: 2,
-    title: "Kimajaya Nusantara",
-    description: "Travel service platform",
-    image: "/project/kimajaya.png",
-    url: "https://kimajaya.my.id",
-  },
-];
-
 export default function Projects() {
-  const [selectedProject, setSelectedProject] = useState < any > null;
+  const projects = [
+    {
+      id: 1,
+      title: "KawaiiStream",
+      description: "Anime streaming platform",
+      image: "/project/kawaiistream.jpg",
+      url: "https://kawaiistream.vercel.app",
+    },
+    // {
+    //   id: 2,
+    //   title: "KitsuZone",
+    //   description: "Anime streaming platform with Modern UI like Crunch",
+    //   image: "/project/kawaiistream.jpg",
+    //   url: "#",
+    // },
+    {
+      id: 2,
+      title: "Kimajaya Nusantara",
+      description: "Travel service platform",
+      image: "/project/kimajaya.png",
+      url: "https://kimajaya.my.id",
+    },
+  ];
+  const [selectedProject, setSelectedProject] = useState();
   const [isOpen, setIsOpen] = useState(false);
 
   return (
