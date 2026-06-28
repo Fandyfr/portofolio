@@ -45,6 +45,32 @@ export default function Home() {
     terminalEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Fandy Fathurrohman",
+    alternateName: ["FandyFr", "Fandy Fathurrohman"],
+    url: "https://fandyfr.my.id",
+    jobTitle: "Full Stack Developer",
+    knowsAbout: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Docker",
+      "Linux",
+      "Cloudflare",
+      "UI/UX",
+      "Audio Engineering",
+      "Audio Mixing Dolby Atmos",
+    ],
+    sameAs: [
+      "https://github.com/Fandyfr",
+      "https://x.com/FandyFrOfficial",
+      "https://instagram.com/fndy.fr",
+      "https://www.reddit.com/user/FandyFafa/",
+    ],
+  };
+
   useEffect(() => {
     scrollToBottom();
   }, [terminalLog]);
@@ -356,508 +382,555 @@ export default function Home() {
   };
 
   return (
-    <div className={darkMode ? "dark" : ""}>
-      <m.div
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-500 to-red-600 z-[100] origin-left"
-        style={{ scaleX }}
-      />
+    <>
       <Head>
-        <title>FandyFr | Portofolio Page</title>
-        <meta name="description" content="Crafted with heart" />
+        <title>
+          Fandy Fathurrohman (FandyFr) | Full Stack Developer | Portfolio
+        </title>
+        <meta
+          name="description"
+          content="Official portfolio of Fandy Fathurrohman (FandyFr), a Full Stack Developer from Indonesia specializing in Next.js, React, TypeScript, Docker, Linux, Cloudflare, UI/UX, and modern web development."
+        />
+        <meta
+          name="keywords"
+          content="FandyFr,Fandy Fathurrohman,Fandy,Portfolio,Full Stack Developer,Next.js,React,TypeScript,Docker,Cloudflare,Linux,Indonesia"
+        />
+        <meta name="author" content="Fandy Fathurrohman" />
+        <meta name="robots" content="index,follow,max-image-preview:large" />
+        <meta name="googlebot" content="index,follow" />
+        <link rel="canonical" href="https://fandyfr.my.id/" />
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="FandyFr" />
+        <meta
+          property="og:title"
+          content="Fandy Fathurrohman (FandyFr) | Full Stack Developer"
+        />
+        <meta
+          property="og:description"
+          content="Official portfolio of Fandy Fathurrohman (FandyFr)."
+        />
+        <meta property="og:url" content="https://fandyfr.my.id/" />
+        <meta property="og:image" content="https://fandyfr.my.id/avatar.png" />
+
+        {/* Twitter/X */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Fandy Fathurrohman (FandyFr)" />
+        <meta
+          name="twitter:description"
+          content="Official portfolio of FandyFr."
+        />
+        <meta name="twitter:image" content="https://fandyfr.my.id/avatar.png" />
+
+        {/* JSON-LD */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(personSchema),
+          }}
+        />
       </Head>
 
-      <main
-        className="bg-white dark:bg-gray-900 transition-colors duration-300 px-5 md:px-10 lg:px-20"
-        id="home"
-      >
-        {/* <Navbar /> */}
-        <nav className="py-5 mb-10 flex justify-between items-center">
-          <Link href="/" className="font-burtons text-xl">
-            FandyFr 🦊
-          </Link>
-          <ul className="flex items-center gap-4 sm:gap-6">
-            <li>
-              <BsFillMoonStarsFill
-                onClick={() => setDarkMode(!darkMode)}
-                className="cursor-pointer text-2xl"
-              />
-            </li>
-            <li>
-              <button
-                onClick={() => setIsOpen(true)}
-                className="bg-gradient-to-r from-red-500 to-orange-500 text-white px-4 py-2 rounded-md hover:opacity-90 transition"
-              >
-                Menu
-              </button>
-            </li>
-          </ul>
-          <button
-            onClick={() => setShowTerminal(true)}
-            className="fixed bottom-5 right-5 bg-gray-900 text-green-400 p-3 rounded-full shadow-2xl border border-green-500/50 font-mono text-xs z-50"
-          >
-            {">_"}
-          </button>
+      <div className={darkMode ? "dark" : ""}>
+        <m.div
+          className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-500 to-red-600 z-[100] origin-left"
+          style={{ scaleX }}
+        />
+        <main
+          className="bg-white dark:bg-gray-900 transition-colors duration-300 px-5 md:px-10 lg:px-20"
+          id="home"
+        >
+          {/* <Navbar /> */}
+          <nav className="py-5 mb-10 flex justify-between items-center">
+            <Link href="/" className="font-burtons text-xl">
+              FandyFr 🦊
+            </Link>
+            <ul className="flex items-center gap-4 sm:gap-6">
+              <li>
+                <BsFillMoonStarsFill
+                  onClick={() => setDarkMode(!darkMode)}
+                  className="cursor-pointer text-2xl"
+                />
+              </li>
+              <li>
+                <button
+                  onClick={() => setIsOpen(true)}
+                  className="bg-gradient-to-r from-red-500 to-orange-500 text-white px-4 py-2 rounded-md hover:opacity-90 transition"
+                >
+                  Menu
+                </button>
+              </li>
+            </ul>
+            <button
+              onClick={() => setShowTerminal(true)}
+              className="fixed bottom-5 right-5 bg-gray-900 text-green-400 p-3 rounded-full shadow-2xl border border-green-500/50 font-mono text-xs z-50"
+            >
+              {">_"}
+            </button>
 
-          {showTerminal && (
-            <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-              <m.div
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                className="bg-[#1a1b26] w-full max-w-3xl rounded-xl overflow-hidden border border-white/10 shadow-[0_0_50px_-12px_rgba(0,0,0,0.5)] font-mono"
-              >
-                {/* Header */}
-                <div className="bg-[#24283b] p-3 flex justify-between items-center border-b border-white/5">
-                  <div className="flex gap-2 ml-1">
-                    <div className="w-3 h-3 rounded-full bg-red-500/80" />
-                    <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                    <div className="w-3 h-3 rounded-full bg-green-500/80" />
+            {showTerminal && (
+              <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+                <m.div
+                  initial={{ scale: 0.9, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  className="bg-[#1a1b26] w-full max-w-3xl rounded-xl overflow-hidden border border-white/10 shadow-[0_0_50px_-12px_rgba(0,0,0,0.5)] font-mono"
+                >
+                  {/* Header */}
+                  <div className="bg-[#24283b] p-3 flex justify-between items-center border-b border-white/5">
+                    <div className="flex gap-2 ml-1">
+                      <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                      <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+                      <div className="w-3 h-3 rounded-full bg-green-500/80" />
+                    </div>
+                    <span className="text-[10px] uppercase tracking-widest text-gray-500 font-bold">
+                      Kitsune Terminal — Session:{" "}
+                      {new Date().toLocaleTimeString()}
+                    </span>
+                    <button
+                      onClick={() => setShowTerminal(false)}
+                      className="text-gray-500 hover:text-white transition-colors px-2"
+                    >
+                      ✕
+                    </button>
                   </div>
-                  <span className="text-[10px] uppercase tracking-widest text-gray-500 font-bold">
-                    Kitsune Terminal — Session:{" "}
-                    {new Date().toLocaleTimeString()}
-                  </span>
+
+                  {/* Area Terminal */}
+                  <div className="p-6 h-[500px] overflow-y-auto text-sm no-scrollbar scroll-smooth">
+                    {terminalLog.map((line, i) => (
+                      <div key={i} className="mb-3">
+                        {/* Jika baris adalah input user (diawali >) */}
+                        {typeof line === "string" && line.startsWith(">") ? (
+                          <div className="flex gap-2">
+                            <span className="text-white font-bold">{">"}</span>
+                            <span className="text-white">
+                              {line.substring(1).trim()}
+                            </span>
+                          </div>
+                        ) : (
+                          /* Jika baris adalah respon (String atau JSX) */
+                          <div className="text-blue-300">{line}</div>
+                        )}
+                      </div>
+                    ))}
+
+                    {/* Input Area */}
+                    <div className="flex gap-3 text-green-400 items-center mt-2">
+                      <span className="shrink-0 text-orange-500 font-bold">
+                        ➜
+                      </span>
+                      <span className="shrink-0 text-blue-400">~</span>
+                      <input
+                        autoFocus
+                        className="bg-transparent outline-none w-full border-none p-0 focus:ring-0 text-green-400"
+                        value={terminalInput}
+                        onChange={(e) => setTerminalInput(e.target.value)}
+                        onKeyDown={handleTerminal}
+                        spellCheck="false"
+                      />
+                    </div>
+
+                    {/* Anchor untuk Auto-Scroll */}
+                    <div ref={terminalEndRef} />
+                  </div>
+                </m.div>
+              </div>
+            )}
+          </nav>
+
+          <Dialog open={isOpen} onClose={() => setIsOpen(false)}>
+            <DialogPanel
+              className="fixed top-24 right-5 z-50 w-72 rounded-2xl shadow-xl p-6 
+                     bg-white dark:bg-gray-900
+                     border border-gray-200 dark:border-gray-700"
+            >
+              <DialogTitle className="font-bold text-lg mb-4 text-gray-900 dark:text-white">
+                Quick Links
+              </DialogTitle>
+              <ul className="space-y-4">
+                {[
+                  {
+                    href: "https://github.com/Fandyfr",
+                    icon: <AiFillGithub />,
+                    text: "GitHub",
+                  },
+                  {
+                    href: "https://x.com/FandyFrOfficial",
+                    icon: <FaXTwitter />,
+                    text: "Twitter",
+                  },
+                  {
+                    href: "https://instagram.com/fandyfr_.12",
+                    icon: <AiFillInstagram />,
+                    text: "Instagram",
+                  },
+                  {
+                    href: "https://www.reddit.com/user/FandyFafa/",
+                    icon: <AiFillRedditCircle />,
+                    text: "Reddit",
+                  },
+                ].map((link, i) => (
+                  <li key={i}>
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-gray-800 dark:text-gray-200 hover:text-orange-400 transition"
+                    >
+                      {link.icon} {link.text}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </DialogPanel>
+          </Dialog>
+
+          <section className="relative min-h-screen w-full flex flex-col items-center justify-center text-center overflow-hidden">
+            <m.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="text-4xl md:text-5xl lg:text-6xl py-2 font-bold text-orange-600">
+                Fandy Fathurrohman
+              </h2>
+              <h3 className="text-xl md:text-2xl lg:text-3xl py-2 text-gray-800 dark:text-white">
+                🦊 Developer and Designer 🦊
+              </h3>
+              <p className="max-w-xl mx-auto py-5 text-gray-700 md:text-lg dark:text-white">
+                ITB STIKOM BALI, Information Systems major.
+              </p>
+            </m.div>
+            <m.div
+              initial={{ opacity: 0, scale: 0.6, rotate: -10 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              whileHover={{
+                scale: 1.05,
+                rotate: 2,
+                transition: { type: "spring", stiffness: 200, damping: 15 },
+              }}
+              className="relative mt-12 w-56 h-56 md:w-72 md:h-72 lg:w-80 lg:h-80"
+            >
+              <m.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5, duration: 1 }}
+                className="absolute inset-0 rounded-full bg-gradient-to-tr from-pink-400 via-orange-300 to-yellow-400 animate-spin-slow blur-xl opacity-50"
+              />
+              <div className="relative w-full h-full rounded-full overflow-hidden shadow-2xl">
+                <Image
+                  src={headicon}
+                  alt="profile"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <m.div
+                animate={{ scale: [1, 1.1, 1] }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 3,
+                  ease: "easeInOut",
+                }}
+                className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-400/30 via-pink-300/20 to-transparent blur-3xl"
+              />
+            </m.div>
+          </section>
+
+          <section className="py-16 relative" id="skills">
+            <h3 className="text-3xl font-semibold text-center mb-10 dark:text-white">
+              ⚡ Skills & Tools
+            </h3>
+
+            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 px-6">
+              {[
+                { title: "Design", icon: desain, items: ["Figma", "Adobe XD"] },
+                {
+                  title: "Languages",
+                  icon: code,
+                  items: ["NextJS", "JavaScript", "PHP", "C++"],
+                },
+                {
+                  title: "Tools",
+                  icon: dev,
+                  items: ["VS Code", "Android Studio", "Git"],
+                },
+              ].map((card, i) => (
+                <m.div
+                  key={i}
+                  whileHover={{ scale: 1.05 }}
+                  className="relative rounded-2xl overflow-hidden shadow-lg p-[1px]"
+                >
+                  <div className="rounded-2xl bg-white/20 dark:bg-gray-900/30 backdrop-blur-lg border border-white/20 dark:border-gray-700/30 p-6 h-full flex flex-col justify-center items-center text-center">
+                    <Image
+                      src={card.icon}
+                      alt={card.title}
+                      width={80}
+                      height={80}
+                      className="mx-auto drop-shadow-lg"
+                    />
+
+                    <h4 className="text-lg font-semibold pt-4 pb-2 text-gray-900 dark:text-white">
+                      {card.title}
+                    </h4>
+                    <Transition
+                      appear={true}
+                      show={true}
+                      enter="transition ease-out duration-500"
+                      enterFrom="opacity-0 translate-y-2"
+                      enterTo="opacity-100 translate-y-0"
+                    >
+                      <ul className="space-y-1">
+                        {card.items.map((item, j) => (
+                          <li
+                            key={j}
+                            className="text-sm text-gray-700 dark:text-gray-300 hover:text-orange-400 transition"
+                          >
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </Transition>
+                  </div>
+                </m.div>
+              ))}
+            </div>
+          </section>
+
+          <Projects />
+        </main>
+        {isMusicOpen && (
+          <div className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-black/55 backdrop-blur-xl">
+            <m.div
+              initial={{ opacity: 0, scale: 0.92, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              className="relative w-full max-w-5xl overflow-hidden rounded-[32px] border border-white/20 bg-white/10 p-4 text-white shadow-[0_30px_120px_rgba(0,0,0,0.45)] backdrop-blur-3xl"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0.06))",
+              }}
+            >
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.22),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(255,140,0,0.18),transparent_40%)]" />
+              <div className="relative z-10">
+                <div className="flex items-center justify-between gap-4 border-b border-white/15 pb-4">
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.35em] text-white/60">
+                      FandyMusic
+                    </p>
+                    <h3 className="mt-1 text-2xl font-semibold">
+                      My Song Preview
+                    </h3>
+                  </div>
                   <button
-                    onClick={() => setShowTerminal(false)}
-                    className="text-gray-500 hover:text-white transition-colors px-2"
+                    onClick={() => setIsMusicOpen(false)}
+                    className="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm text-white/90 hover:bg-white/20 transition"
                   >
-                    ✕
+                    Close
                   </button>
                 </div>
 
-                {/* Area Terminal */}
-                <div className="p-6 h-[500px] overflow-y-auto text-sm no-scrollbar scroll-smooth">
-                  {terminalLog.map((line, i) => (
-                    <div key={i} className="mb-3">
-                      {/* Jika baris adalah input user (diawali >) */}
-                      {typeof line === "string" && line.startsWith(">") ? (
-                        <div className="flex gap-2">
-                          <span className="text-white font-bold">{">"}</span>
-                          <span className="text-white">
-                            {line.substring(1).trim()}
-                          </span>
-                        </div>
-                      ) : (
-                        /* Jika baris adalah respon (String atau JSX) */
-                        <div className="text-blue-300">{line}</div>
-                      )}
-                    </div>
-                  ))}
-
-                  {/* Input Area */}
-                  <div className="flex gap-3 text-green-400 items-center mt-2">
-                    <span className="shrink-0 text-orange-500 font-bold">
-                      ➜
-                    </span>
-                    <span className="shrink-0 text-blue-400">~</span>
-                    <input
-                      autoFocus
-                      className="bg-transparent outline-none w-full border-none p-0 focus:ring-0 text-green-400"
-                      value={terminalInput}
-                      onChange={(e) => setTerminalInput(e.target.value)}
-                      onKeyDown={handleTerminal}
-                      spellCheck="false"
+                <div className="mt-4 flex gap-3">
+                  {musicSlides.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setMusicSlide(index)}
+                      className={`h-2 flex-1 rounded-full transition ${
+                        musicSlide === index
+                          ? "bg-white"
+                          : "bg-white/20 hover:bg-white/35"
+                      }`}
+                      aria-label={`Show slide ${index + 1}`}
                     />
-                  </div>
-
-                  {/* Anchor untuk Auto-Scroll */}
-                  <div ref={terminalEndRef} />
-                </div>
-              </m.div>
-            </div>
-          )}
-        </nav>
-
-        <Dialog open={isOpen} onClose={() => setIsOpen(false)}>
-          <DialogPanel
-            className="fixed top-24 right-5 z-50 w-72 rounded-2xl shadow-xl p-6 
-                     bg-white dark:bg-gray-900
-                     border border-gray-200 dark:border-gray-700"
-          >
-            <DialogTitle className="font-bold text-lg mb-4 text-gray-900 dark:text-white">
-              Quick Links
-            </DialogTitle>
-            <ul className="space-y-4">
-              {[
-                {
-                  href: "https://github.com/Fandyfr",
-                  icon: <AiFillGithub />,
-                  text: "GitHub",
-                },
-                {
-                  href: "https://x.com/FandyFrOfficial",
-                  icon: <FaXTwitter />,
-                  text: "Twitter",
-                },
-                {
-                  href: "https://instagram.com/fandyfr_.12",
-                  icon: <AiFillInstagram />,
-                  text: "Instagram",
-                },
-                {
-                  href: "https://www.reddit.com/user/FandyFafa/",
-                  icon: <AiFillRedditCircle />,
-                  text: "Reddit",
-                },
-              ].map((link, i) => (
-                <li key={i}>
-                  <a
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-gray-800 dark:text-gray-200 hover:text-orange-400 transition"
-                  >
-                    {link.icon} {link.text}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </DialogPanel>
-        </Dialog>
-
-        <section className="relative min-h-screen w-full flex flex-col items-center justify-center text-center overflow-hidden">
-          <m.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl py-2 font-bold text-orange-600">
-              Fandy Fathurrohman
-            </h2>
-            <h3 className="text-xl md:text-2xl lg:text-3xl py-2 text-gray-800 dark:text-white">
-              🦊 Developer and Designer 🦊
-            </h3>
-            <p className="max-w-xl mx-auto py-5 text-gray-700 md:text-lg dark:text-white">
-              ITB STIKOM BALI, Information Systems major.
-            </p>
-          </m.div>
-          <m.div
-            initial={{ opacity: 0, scale: 0.6, rotate: -10 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            whileHover={{
-              scale: 1.05,
-              rotate: 2,
-              transition: { type: "spring", stiffness: 200, damping: 15 },
-            }}
-            className="relative mt-12 w-56 h-56 md:w-72 md:h-72 lg:w-80 lg:h-80"
-          >
-            <m.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5, duration: 1 }}
-              className="absolute inset-0 rounded-full bg-gradient-to-tr from-pink-400 via-orange-300 to-yellow-400 animate-spin-slow blur-xl opacity-50"
-            />
-            <div className="relative w-full h-full rounded-full overflow-hidden shadow-2xl">
-              <Image
-                src={headicon}
-                alt="profile"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <m.div
-              animate={{ scale: [1, 1.1, 1] }}
-              transition={{
-                repeat: Infinity,
-                duration: 3,
-                ease: "easeInOut",
-              }}
-              className="absolute inset-0 rounded-full bg-gradient-to-br from-purple-400/30 via-pink-300/20 to-transparent blur-3xl"
-            />
-          </m.div>
-        </section>
-
-        <section className="py-16 relative" id="skills">
-          <h3 className="text-3xl font-semibold text-center mb-10 dark:text-white">
-            ⚡ Skills & Tools
-          </h3>
-
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 px-6">
-            {[
-              { title: "Design", icon: desain, items: ["Figma", "Adobe XD"] },
-              {
-                title: "Languages",
-                icon: code,
-                items: ["NextJS", "JavaScript", "PHP", "C++"],
-              },
-              {
-                title: "Tools",
-                icon: dev,
-                items: ["VS Code", "Android Studio", "Git"],
-              },
-            ].map((card, i) => (
-              <m.div
-                key={i}
-                whileHover={{ scale: 1.05 }}
-                className="relative rounded-2xl overflow-hidden shadow-lg p-[1px]"
-              >
-                <div className="rounded-2xl bg-white/20 dark:bg-gray-900/30 backdrop-blur-lg border border-white/20 dark:border-gray-700/30 p-6 h-full flex flex-col justify-center items-center text-center">
-                  <Image
-                    src={card.icon}
-                    alt={card.title}
-                    width={80}
-                    height={80}
-                    className="mx-auto drop-shadow-lg"
-                  />
-
-                  <h4 className="text-lg font-semibold pt-4 pb-2 text-gray-900 dark:text-white">
-                    {card.title}
-                  </h4>
-                  <Transition
-                    appear={true}
-                    show={true}
-                    enter="transition ease-out duration-500"
-                    enterFrom="opacity-0 translate-y-2"
-                    enterTo="opacity-100 translate-y-0"
-                  >
-                    <ul className="space-y-1">
-                      {card.items.map((item, j) => (
-                        <li
-                          key={j}
-                          className="text-sm text-gray-700 dark:text-gray-300 hover:text-orange-400 transition"
-                        >
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </Transition>
-                </div>
-              </m.div>
-            ))}
-          </div>
-        </section>
-
-        <Projects />
-      </main>
-      {isMusicOpen && (
-        <div className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-black/55 backdrop-blur-xl">
-          <m.div
-            initial={{ opacity: 0, scale: 0.92, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            className="relative w-full max-w-5xl overflow-hidden rounded-[32px] border border-white/20 bg-white/10 p-4 text-white shadow-[0_30px_120px_rgba(0,0,0,0.45)] backdrop-blur-3xl"
-            style={{
-              background:
-                "linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0.06))",
-            }}
-          >
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.22),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(255,140,0,0.18),transparent_40%)]" />
-            <div className="relative z-10">
-              <div className="flex items-center justify-between gap-4 border-b border-white/15 pb-4">
-                <div>
-                  <p className="text-xs uppercase tracking-[0.35em] text-white/60">
-                    FandyMusic
-                  </p>
-                  <h3 className="mt-1 text-2xl font-semibold">
-                    My Song Preview
-                  </h3>
-                </div>
-                <button
-                  onClick={() => setIsMusicOpen(false)}
-                  className="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm text-white/90 hover:bg-white/20 transition"
-                >
-                  Close
-                </button>
-              </div>
-
-              <div className="mt-4 flex gap-3">
-                {musicSlides.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setMusicSlide(index)}
-                    className={`h-2 flex-1 rounded-full transition ${
-                      musicSlide === index
-                        ? "bg-white"
-                        : "bg-white/20 hover:bg-white/35"
-                    }`}
-                    aria-label={`Show slide ${index + 1}`}
-                  />
-                ))}
-              </div>
-
-              <div className="mt-5 grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
-                <div className="rounded-[28px] border border-white/15 bg-white/10 p-5 shadow-inner shadow-black/10 backdrop-blur-xl">
-                  {activeMusicSlide.type === "ranking" ? (
-                    <div className="space-y-4">
-                      <div>
-                        <p className="text-sm uppercase tracking-[0.3em] text-white/60">
-                          Slide 1
-                        </p>
-                        <h4 className="mt-1 text-3xl font-bold">
-                          {activeMusicSlide.title}
-                        </h4>
-                        <p className="text-white/70">
-                          {activeMusicSlide.subtitle}
-                        </p>
-                      </div>
-                      <ol className="grid gap-2 sm:grid-cols-2">
-                        {activeMusicSlide.items.map((item, index) => (
-                          <li
-                            key={item}
-                            className="flex items-center justify-between rounded-2xl border border-white/10 bg-black/10 px-4 py-3 text-sm"
-                          >
-                            <span>{item}</span>
-                            <span className="text-white/50">#{index + 1}</span>
-                          </li>
-                        ))}
-                      </ol>
-                    </div>
-                  ) : (
-                    <div className="space-y-4">
-                      <div>
-                        <p className="text-sm uppercase tracking-[0.3em] text-white/60">
-                          {musicSlide === 1 ? "Slide 2" : "Slide 3"}
-                        </p>
-                        <h4 className="mt-1 text-3xl font-bold">
-                          {activeMusicSlide.title}
-                        </h4>
-                        <p className="mt-2 text-white/75 leading-relaxed">
-                          {activeMusicSlide.description}
-                        </p>
-                      </div>
-                      <div className="overflow-hidden rounded-[24px] border border-white/10 bg-black/20">
-                        <Image
-                          src={activeMusicSlide.image}
-                          alt={activeMusicSlide.title}
-                          width={1200}
-                          height={900}
-                          className="h-[280px] w-full object-cover sm:h-[340px] md:h-[420px] lg:h-[460px]"
-                        />
-                      </div>
-                      <div className="rounded-[24px] border border-white/10 bg-white/10 p-4">
-                        <p className="text-xs uppercase tracking-[0.25em] text-white/55">
-                          My comment
-                        </p>
-                        <p className="mt-2 text-white/90">
-                          {activeMusicSlide.comment}
-                        </p>
-                      </div>
-                    </div>
-                  )}
+                  ))}
                 </div>
 
-                <div className="rounded-[28px] border border-white/15 bg-white/10 p-5 backdrop-blur-xl">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-xs uppercase tracking-[0.3em] text-white/60">
-                        Preview Player
-                      </p>
-                      <h4 className="mt-1 text-xl font-semibold">
-                        {activeMusicSlide.songLabel || "Playlist preview"}
-                      </h4>
-                    </div>
-                    <div className="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs text-white/70">
-                      {musicSlide + 1}/3
-                    </div>
-                  </div>
-
-                  <audio
-                    ref={audioRef}
-                    className="hidden"
-                    onTimeUpdate={() => {
-                      const audio = audioRef.current;
-                      if (!audio) return;
-                      const current = Math.min(audio.currentTime || 0, 30);
-                      setMusicProgress((current / 30) * 100);
-                      if (current >= 30) {
-                        audio.pause();
-                        setIsMusicPlaying(false);
-                      }
-                    }}
-                    onPlay={() => setIsMusicPlaying(true)}
-                    onPause={() => setIsMusicPlaying(false)}
-                  />
-                  <div className="mt-5 rounded-[24px] border border-white/10 bg-black/20 p-4">
-                    <div className="flex items-center gap-3">
-                      <button
-                        onClick={() => seekMusic(-10)}
-                        className="grid h-11 w-11 place-items-center rounded-full border border-white/15 bg-white/10 text-white hover:bg-white/20 transition"
-                        aria-label="Skip back 10 seconds"
-                      >
-                        <IoPlaySkipBack className="text-lg" />
-                      </button>
-                      <button
-                        onClick={toggleMusicPlayback}
-                        className="grid h-14 w-14 place-items-center rounded-full bg-white text-gray-900 hover:scale-105 transition"
-                        aria-label={
-                          isMusicPlaying ? "Pause preview" : "Play preview"
-                        }
-                      >
-                        {isMusicPlaying ? (
-                          <IoPause className="text-2xl" />
-                        ) : (
-                          <IoPlay className="ml-0.5 text-2xl" />
-                        )}
-                      </button>
-                      <button
-                        onClick={() => seekMusic(10)}
-                        className="grid h-11 w-11 place-items-center rounded-full border border-white/15 bg-white/10 text-white hover:bg-white/20 transition"
-                        aria-label="Skip forward 10 seconds"
-                      >
-                        <IoPlaySkipForward className="text-lg" />
-                      </button>
-                      <div className="min-w-0 flex-1">
-                        <div className="flex items-center justify-between text-xs text-white/60">
-                          <span>0:00</span>
-                          <span>0:30</span>
+                <div className="mt-5 grid gap-5 lg:grid-cols-[1.1fr_0.9fr]">
+                  <div className="rounded-[28px] border border-white/15 bg-white/10 p-5 shadow-inner shadow-black/10 backdrop-blur-xl">
+                    {activeMusicSlide.type === "ranking" ? (
+                      <div className="space-y-4">
+                        <div>
+                          <p className="text-sm uppercase tracking-[0.3em] text-white/60">
+                            Slide 1
+                          </p>
+                          <h4 className="mt-1 text-3xl font-bold">
+                            {activeMusicSlide.title}
+                          </h4>
+                          <p className="text-white/70">
+                            {activeMusicSlide.subtitle}
+                          </p>
                         </div>
-                        <input
-                          type="range"
-                          min="0"
-                          max="100"
-                          value={musicProgress}
-                          onChange={(e) => {
-                            const audio = audioRef.current;
-                            if (!audio) return;
-                            const percent = Number(e.target.value);
-                            const nextTime = (percent / 100) * 30;
-                            audio.currentTime = nextTime;
-                            setMusicProgress(percent);
-                          }}
-                          className="mt-2 w-full accent-orange-400"
-                          aria-label="Seek preview"
-                        />
+                        <ol className="grid gap-2 sm:grid-cols-2">
+                          {activeMusicSlide.items.map((item, index) => (
+                            <li
+                              key={item}
+                              className="flex items-center justify-between rounded-2xl border border-white/10 bg-black/10 px-4 py-3 text-sm"
+                            >
+                              <span>{item}</span>
+                              <span className="text-white/50">
+                                #{index + 1}
+                              </span>
+                            </li>
+                          ))}
+                        </ol>
                       </div>
-                    </div>
-                    <div className="mt-4 flex items-center justify-between text-sm text-white/70">
-                      <span>Preview length: 30 seconds</span>
-                      <span>
-                        {Math.round((musicProgress / 100) * 30)}s / 30s
-                      </span>
-                    </div>
+                    ) : (
+                      <div className="space-y-4">
+                        <div>
+                          <p className="text-sm uppercase tracking-[0.3em] text-white/60">
+                            {musicSlide === 1 ? "Slide 2" : "Slide 3"}
+                          </p>
+                          <h4 className="mt-1 text-3xl font-bold">
+                            {activeMusicSlide.title}
+                          </h4>
+                          <p className="mt-2 text-white/75 leading-relaxed">
+                            {activeMusicSlide.description}
+                          </p>
+                        </div>
+                        <div className="overflow-hidden rounded-[24px] border border-white/10 bg-black/20">
+                          <Image
+                            src={activeMusicSlide.image}
+                            alt={activeMusicSlide.title}
+                            width={1200}
+                            height={900}
+                            className="h-[280px] w-full object-cover sm:h-[340px] md:h-[420px] lg:h-[460px]"
+                          />
+                        </div>
+                        <div className="rounded-[24px] border border-white/10 bg-white/10 p-4">
+                          <p className="text-xs uppercase tracking-[0.25em] text-white/55">
+                            My comment
+                          </p>
+                          <p className="mt-2 text-white/90">
+                            {activeMusicSlide.comment}
+                          </p>
+                        </div>
+                      </div>
+                    )}
                   </div>
 
-                  <div className="mt-4 flex gap-3">
-                    <button
-                      onClick={() =>
-                        setMusicSlide((prev) => (prev - 1 + 3) % 3)
-                      }
-                      className="flex-1 rounded-2xl border border-white/15 bg-white/10 px-4 py-3 text-sm font-medium hover:bg-white/20 transition"
-                    >
-                      Previous
-                    </button>
-                    <button
-                      onClick={() => setMusicSlide((prev) => (prev + 1) % 3)}
-                      className="flex-1 rounded-2xl bg-white px-4 py-3 text-sm font-semibold text-gray-900 hover:bg-white/90 transition"
-                    >
-                      Next
-                    </button>
+                  <div className="rounded-[28px] border border-white/15 bg-white/10 p-5 backdrop-blur-xl">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="text-xs uppercase tracking-[0.3em] text-white/60">
+                          Preview Player
+                        </p>
+                        <h4 className="mt-1 text-xl font-semibold">
+                          {activeMusicSlide.songLabel || "Playlist preview"}
+                        </h4>
+                      </div>
+                      <div className="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs text-white/70">
+                        {musicSlide + 1}/3
+                      </div>
+                    </div>
+
+                    <audio
+                      ref={audioRef}
+                      className="hidden"
+                      onTimeUpdate={() => {
+                        const audio = audioRef.current;
+                        if (!audio) return;
+                        const current = Math.min(audio.currentTime || 0, 30);
+                        setMusicProgress((current / 30) * 100);
+                        if (current >= 30) {
+                          audio.pause();
+                          setIsMusicPlaying(false);
+                        }
+                      }}
+                      onPlay={() => setIsMusicPlaying(true)}
+                      onPause={() => setIsMusicPlaying(false)}
+                    />
+                    <div className="mt-5 rounded-[24px] border border-white/10 bg-black/20 p-4">
+                      <div className="flex items-center gap-3">
+                        <button
+                          onClick={() => seekMusic(-10)}
+                          className="grid h-11 w-11 place-items-center rounded-full border border-white/15 bg-white/10 text-white hover:bg-white/20 transition"
+                          aria-label="Skip back 10 seconds"
+                        >
+                          <IoPlaySkipBack className="text-lg" />
+                        </button>
+                        <button
+                          onClick={toggleMusicPlayback}
+                          className="grid h-14 w-14 place-items-center rounded-full bg-white text-gray-900 hover:scale-105 transition"
+                          aria-label={
+                            isMusicPlaying ? "Pause preview" : "Play preview"
+                          }
+                        >
+                          {isMusicPlaying ? (
+                            <IoPause className="text-2xl" />
+                          ) : (
+                            <IoPlay className="ml-0.5 text-2xl" />
+                          )}
+                        </button>
+                        <button
+                          onClick={() => seekMusic(10)}
+                          className="grid h-11 w-11 place-items-center rounded-full border border-white/15 bg-white/10 text-white hover:bg-white/20 transition"
+                          aria-label="Skip forward 10 seconds"
+                        >
+                          <IoPlaySkipForward className="text-lg" />
+                        </button>
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-center justify-between text-xs text-white/60">
+                            <span>0:00</span>
+                            <span>0:30</span>
+                          </div>
+                          <input
+                            type="range"
+                            min="0"
+                            max="100"
+                            value={musicProgress}
+                            onChange={(e) => {
+                              const audio = audioRef.current;
+                              if (!audio) return;
+                              const percent = Number(e.target.value);
+                              const nextTime = (percent / 100) * 30;
+                              audio.currentTime = nextTime;
+                              setMusicProgress(percent);
+                            }}
+                            className="mt-2 w-full accent-orange-400"
+                            aria-label="Seek preview"
+                          />
+                        </div>
+                      </div>
+                      <div className="mt-4 flex items-center justify-between text-sm text-white/70">
+                        <span>Preview length: 30 seconds</span>
+                        <span>
+                          {Math.round((musicProgress / 100) * 30)}s / 30s
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="mt-4 flex gap-3">
+                      <button
+                        onClick={() =>
+                          setMusicSlide((prev) => (prev - 1 + 3) % 3)
+                        }
+                        className="flex-1 rounded-2xl border border-white/15 bg-white/10 px-4 py-3 text-sm font-medium hover:bg-white/20 transition"
+                      >
+                        Previous
+                      </button>
+                      <button
+                        onClick={() => setMusicSlide((prev) => (prev + 1) % 3)}
+                        className="flex-1 rounded-2xl bg-white px-4 py-3 text-sm font-semibold text-gray-900 hover:bg-white/90 transition"
+                      >
+                        Next
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </m.div>
+            </m.div>
+          </div>
+        )}
+        <div className="fixed bottom-5 left-5 z-40 flex items-center gap-3 bg-white/10 backdrop-blur-md p-2 rounded-full border border-white/20">
+          <button
+            onClick={() => setIsMusicOpen(true)}
+            className="w-10 h-10 rounded-full bg-orange-600 flex items-center justify-center text-white shadow-lg"
+            aria-label="Open music preview"
+          >
+            ♪
+          </button>
         </div>
-      )}
-      <div className="fixed bottom-5 left-5 z-40 flex items-center gap-3 bg-white/10 backdrop-blur-md p-2 rounded-full border border-white/20">
-        <button
-          onClick={() => setIsMusicOpen(true)}
-          className="w-10 h-10 rounded-full bg-orange-600 flex items-center justify-center text-white shadow-lg"
-          aria-label="Open music preview"
-        >
-          ♪
-        </button>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </>
   );
 }
