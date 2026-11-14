@@ -1,0 +1,29 @@
+# FandyFr
+
+> Portfolio of Fandy Fathurrohman (FandyFr), a full stack developer and designer from Indonesia. Studies Information Systems at ITB STIKOM Bali. Works with Next.js, TypeScript, Docker, Linux, and Cloudflare.
+
+## About
+
+- Name: Fandy Fathurrohman, also known online as FandyFr
+- Role: Full Stack Developer and Designer
+- Education: ITB STIKOM Bali, Information Systems
+- Website: https://fandyfr.my.id
+
+## Projects
+
+- [KawaiiStream](https://kawaiistream.vercel.app): Anime streaming platform
+- [Kimajaya Nusantara](https://kimajaya.com): Travel service platform
+- [Amatra Park](https://amatrapark.co.id): Integrated cultural and lifestyle destination
+
+## Skills
+
+- Design: Figma, Adobe XD
+- Development: Next.js, JavaScript, TypeScript, PHP, C++
+- Tools: VS Code, Android Studio, Git, Docker, Linux
+
+## Profiles
+
+- [GitHub](https://github.com/Fandyfr)
+- [X / Twitter](https://x.com/FandyFrOfficial)
+- [Instagram](https://instagram.com/fandyfr_.12)
+- [Reddit](https://www.reddit.com/user/FandyFafa/)
