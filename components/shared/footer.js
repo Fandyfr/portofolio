@@ -7,7 +7,7 @@ import {
   AiFillInstagram,
   AiFillRedditCircle,
 } from "react-icons/ai";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaGlobe, FaXTwitter } from "react-icons/fa6";
 
 const NAV = [
   { label: "Home", href: "/" },
@@ -20,7 +20,12 @@ const SOCIALS = [
   {
     href: "https://github.com/Fandyfr",
     icon: <AiFillGithub />,
-    label: "GitHub",
+    label: "GitHub [FandyFr]",
+  },
+  {
+    href: "https://github.com/HarukaRepo",
+    icon: <AiFillGithub />,
+    label: "GitHub 2 [HarukaRepo]",
   },
   {
     href: "https://x.com/FandyFrOfficial",
@@ -36,6 +41,11 @@ const SOCIALS = [
     href: "https://www.reddit.com/user/FandyFafa/",
     icon: <AiFillRedditCircle />,
     label: "Reddit",
+  },
+  {
+    href: "https://kasbu.bio/rad14",
+    icon: <FaGlobe />,
+    label: "Our Partner",
   },
 ];
 
@@ -93,7 +103,7 @@ export default function Footer() {
               Building modern, scalable, and user-friendly applications — with
               attention to security, performance, and detail.
             </p>
-            <a
+            <Link
               href="/#contact"
               className="group mt-8 inline-flex items-center gap-2 text-sm font-medium"
             >
@@ -103,7 +113,7 @@ export default function Footer() {
               <span className="transition-transform group-hover:translate-x-1 group-hover:text-orange-600">
                 →
               </span>
-            </a>
+            </Link>
           </m.div>
 
           <m.nav

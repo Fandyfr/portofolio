@@ -42,7 +42,12 @@ const SOCIALS = [
   {
     href: "https://github.com/Fandyfr",
     icon: <AiFillGithub />,
-    text: "GitHub",
+    text: "GitHub [FandyFr]",
+  },
+  {
+    href: "https://github.com/HarukaRepo",
+    icon: <AiFillGithub />,
+    text: "GitHub 2 [HarukaRepo]",
   },
   {
     href: "https://x.com/FandyFrOfficial",
@@ -64,33 +69,38 @@ const SOCIALS = [
 const CAPABILITIES = [
   {
     no: "01",
-    title: "Design",
-    desc: "Antarmuka yang rapi, konsisten, dan mudah dipakai.",
-    items: ["Figma", "Adobe XD"],
+    title: "System & UI/UX Design",
+    desc: "User experience (UI/UX) design and database architecture modeling prior to development.",
+    items: ["Figma", "Adobe XD", "Draw.io"],
   },
   {
     no: "02",
-    title: "Engineering",
-    desc: "Aplikasi web yang cepat, aman, dan mudah dirawat.",
-    items: ["NextJS", "JavaScript", "PHP", "C++"],
+    title: "Code",
+    desc: "Fast, secure, and maintainable web and mobile applications.",
+    items: ["React", "Next.js", "Kotlin", "Flutter", "React Native"],
   },
   {
     no: "03",
+    title: "Database, ORM & Cache",
+    desc: "Fast, secure, and well-structured data storage with efficient query management.",
+    items: ["PostgreSQL", "SQLite", "Prisma", "Redis"],
+  },
+  {
+    no: "04",
     title: "Tooling",
-    desc: "Workflow pengembangan yang terukur dan repeatable.",
-    items: ["VS Code", "Android Studio", "Git"],
+    desc: "Streamlined, measurable, and repeatable development workflows.",
+    items: ["VS Code", "Android Studio", "GNU nano"],
   },
 ];
 
 const MARQUEE = [
+  "React",
   "Next.js",
   "TypeScript",
+  "JavaScript",
   "Docker",
-  "Linux",
-  "Cloudflare",
-  "Zero Trust",
+  "ZTA/ZTNA",
   "UI / UX",
-  "Dolby Atmos",
 ];
 
 const FOXES = [
@@ -106,19 +116,17 @@ const FOXES = [
 const MUSIC_SLIDES = [
   {
     type: "ranking",
-    title: "My Top 10 Favorite Songs",
-    subtitle: "Rank 1 to 10",
+    title: "My Top 8 Favorite Songs",
+    subtitle: "Rank 1 to 8",
     items: [
       "01. Ado - Haru ni mau",
-      "02. Kenshi Yonezu - IRIS OUT",
-      "03. Kenshi Yonezu - Jane Doe",
+      "02. Ado - Patient A",
+      "03. Ado - Monstruo",
       "04. 攬佬SKAI ISYOURGOD - Blueprint Supreme",
       "05. 攬佬SKAI ISYOURGOD - Karma Code",
       "06. 攬佬SKAI ISYOURGOD - Hexagrams",
-      "07. 1nonly - Shakira",
-      "08. Ado - MIRROR",
-      "09. YOASOBI - BABY",
-      "10. YOASOBI - Adrena",
+      "07. Naykilla - SO ASU",
+      "08. Ado - FREEDOM",
     ],
     songLabel: "Ado - Haru ni Mau",
   },
@@ -426,7 +434,7 @@ export default function Home() {
               web ecosystems and custom AI models.
             </p>
             <div className="text-xs text-gray-500 italic">
-              {'"Building the future with Zero Trust & High Fidelity Audio."'}
+              {'"Building the future with ZTNA"'}
             </div>
           </div>
         );
@@ -770,7 +778,7 @@ export default function Home() {
           <div className="relative z-10">
             <section className="mx-auto max-w-[1400px] px-5 md:px-10 pt-32 md:pt-40 pb-16 md:pb-24">
               <div className="flex items-center justify-between" data-hero-fade>
-                <Label>Portfolio — {new Date().getFullYear()}</Label>
+                <Label>Portfolio - {new Date().getFullYear()}</Label>
                 <Label className="hidden sm:inline">
                   Bali, ID · {clock || "--:--:--"} WITA
                 </Label>
@@ -810,9 +818,9 @@ export default function Home() {
                     data-hero-fade
                     className="max-w-md text-base leading-relaxed text-neutral-600 dark:text-neutral-400 md:text-lg"
                   >
-                    Fandy Fathurrohman — developer dan designer dari Indonesia.
-                    Membangun ekosistem web yang aman dan cepat, dengan
-                    perhatian pada detail visual dan audio berkualitas tinggi.
+                    Fandy Fathurrohman - a developer and designer from Bali,
+                    Indonesia. Building secure, high-performance web ecosystems
+                    with a strong attention for visual detail.
                   </p>
 
                   <div
@@ -876,7 +884,7 @@ export default function Home() {
                           className="object-cover grayscale transition-[filter,transform] duration-700 group-hover:grayscale-0 group-hover:scale-[1.02]"
                         />
                       </div>
-                      <div className="pointer-events-none absolute inset-x-0 bottom-0 flex items-center justify-between p-4 font-mono text-[11px] uppercase tracking-[0.18em] text-white mix-blend-difference">
+                      <div className="pointer-events-none absolute inset-x-0 flex items-center justify-between p-4 font-mono text-[11px] uppercase tracking-[0.18em] text-white mix-blend-difference">
                         <span>Fandy Fathurrohman</span>
                         <span>Fig. 01</span>
                       </div>
